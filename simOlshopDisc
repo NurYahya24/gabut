@@ -1,0 +1,116 @@
+#IMPLEMENTASI TOKO ONLINE
+
+#BARANG YANG TERSEDIA
+x=[]
+menu={}
+menu['1.']='Aksesoris'
+menu['2.']='Penyimpanan'
+menu['3.']='Spare Part'
+menu['4.']='Checkout'
+aks={}
+aks['1.']='Casing Hp            Rp.24 000'
+aks['2.']='Ear Phone            Rp.20 000'
+aks['3.']='Gamepad              Rp.128 000'
+aks['4.']='Kembali'
+simp={}
+simp['1.']='Kartu SD 32 GB      Rp.110 000'
+simp['2.']='Flashdrive 32 GB    Rp.80 000'
+simp['3.']='HDD 128 GB          Rp.200 000'
+simp['4.']='Kembali'
+sp={}
+sp['1.']='Baterai Tanam         Rp.98 000'
+sp['2.']='Backdoor              Rp.30 000'
+sp['3.']='LCD                   Rp.115 000'
+sp['4.']='Kembali'
+while True:
+    pilih = menu.keys()
+    for entry in menu:
+        print(entry, menu[entry])
+        print()
+    sel = str(input("Pilih kategori barang: "))
+    if sel == '1':
+        pilih1=aks.keys()
+        for entryy in aks:
+            print(entryy, aks[entryy])
+            print()
+        sel1=str(input('Pilih Barang: '))
+        if sel1=='1':
+            x.append(int(24000))
+        elif sel1=='2':
+            x.append(int(20000))
+        elif sel1=='3':
+            x.append(int(128000))
+        elif sel1=='4':
+            continue
+        else:
+            print("Pilihan Tidak Valid")
+    elif sel == '2':
+        pilih2=simp.keys()
+        for entryyy in simp: 
+            print(entryyy, simp[entryyy])
+            print()
+        sel2=str(input('Pilih Barang: '))
+        if sel2=='1':
+            x.append(int(110000))
+        elif sel2=='2':
+            x.append(int(80000))
+        elif sel2=='3':
+            x.append(int(200000))
+        elif sel2=='4':
+            continue
+        else:
+            print("Pilihan Tidak Valid")
+    elif sel == '3':
+        pilih3=sp.keys()
+        for entryyyy in sp:
+            print(entryyyy, sp[entryyyy])
+            print()
+        sel3=str(input('Pilih Barang: '))
+        if sel3=='1':
+            x.append(int(98000))
+        elif sel3=='2':
+            x.append(int(30000))
+        elif sel3=='3':
+            x.append(int(115000))
+        elif sel3=='4':
+            continue
+    elif sel == '4':
+        break
+    else:
+        print("Pilihan Tidak Valid")
+
+print()
+print("Total belanja: Rp.%d"%sum(x))
+print("""gunakan kode voucher JUMATBERKAH, dan SENINBELANJA 
+untuk mendapatkan diskon hingga 25%
+""")
+disc10 = sum(x) * 0.1
+disc25 = sum(x) * 0.25
+disc10r = sum(x) - disc10
+disc25r = sum(x) - disc25
+while True:
+    kovo = str(input("Masukkan kode voucher : "))
+    if kovo == 'JUMATBERKAH':
+        print("DISKON 25%")
+        print("TOTAL PEMBAYARAN      : Rp. %d"%disc25r)
+        break
+    elif kovo == 'SENINBELANJA':
+        print("DISKON 10%")
+        print("TOTAL PEMBAYARAN      : Rp. %d"%disc10r)
+        break
+    elif kovo == '-':
+         print("TOTAL PEMBAYARAN     : Rp. %d"%sum(x))
+         break
+    else:
+        print("Maaf, kode voucher tidak tersedia")
+        print("apabila tidak ingin menggunakan voucher, masukkan '-'")
+        print()
+        continue
+import random
+import string
+
+kode = string.ascii_uppercase + string.digits
+koja = ''.join(random.choice(kode) for i in range(12))
+print("KODE PEMBAYARAN       : ACL"+koja)
+print("""Silahkan lakukan pembayaran di Indomerit terdekat 
+dengan menggunakan kode pembayaran""")
